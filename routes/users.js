@@ -1,14 +1,21 @@
 const express = require('express')
-const { getAllUsers, getUsersByAge, updateUsers, deleteUsers } = require('../controllers/users')
+const { getAllUsers, getUsersByGender, createUser, updateUser, deleteUsers } = require('../controllers/users')
 
 const router = express.Router()
 
-router.get('/', getAllUsers)
+// Get all users
+router.get('/users', getAllUsers)
 
-router.get('/:minAge/:maxAge', getUsersByAge)
+// Create a new user
+router.post('/users', createUser)
 
-router.post('/signup', updateUsers)
+// Update users
+router.put('/users', updateUser)
 
-router.delete('/:gender/:minAge/:maxAge', deleteUsers)
+// Get all users from a country of a specific gender
+router.get('/users/byGenderAndCountry/:gender/country/:country', getUsersByGender)
+
+// Delete users
+router.delete('/users/byGenderAndCountry/:gender/country/:country', deleteUsers)
 
 module.exports = router
