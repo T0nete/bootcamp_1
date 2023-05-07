@@ -6,7 +6,7 @@ const router = express.Router()
 // Get all users
 router.get('/users', getAllUsers)
 
-// Create a new user
+// Generate mock data
 router.post('/generateData', createUser)
 
 // Update users

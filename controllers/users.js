@@ -3,7 +3,7 @@ const fs = require('fs')
 /**
  * Get all users
  * @param {*} req
- * @param {*} res
+ * @param {*} res list of users
  */
 const getAllUsers = async (req, res) => {
   console.log('getAllUsers')
@@ -13,9 +13,9 @@ const getAllUsers = async (req, res) => {
 }
 
 /**
- * Get all users
- * @param {*} req
- * @param {*} res
+ * Get all users from a country of a specific gender
+ * @param {gender, country} req 
+ * @param {*} res list of users
  */
 const getUsersByGender = async (req, res) => {
   console.log('getUsersByGender')
@@ -27,9 +27,9 @@ const getUsersByGender = async (req, res) => {
 }
 
 /**
- * Get all users
- * @param {*} req
- * @param {*} res
+ * Delete users from a city and gender
+ * @param {gender, country} 
+ * @param {*} res message
  */
 const deleteUsers = async (req, res) => {
   console.log('deleteUsers')
@@ -49,19 +49,13 @@ const deleteUsers = async (req, res) => {
   }
 }
 
+/**
+ * Generate mock data
+ * @param {*} req 
+ * @param {*} res 
+ */
 const createUser = async (req, res) => {
-  // const { body } = req
-  // const { id, firstName, lastName, email, gender, country } = body
-  // console.log(body)
   try {
-    // const newUser = new User({
-    //   id,
-    //   first_name: firstName,
-    //   last_name: lastName,
-    //   email,
-    //   gender,
-    //   country
-    // })
     const data = fs.readFileSync('mock/users.json')
     const users = JSON.parse(data)
     User.insertMany(users, (err, result) => { 
@@ -76,7 +70,7 @@ const createUser = async (req, res) => {
 
 /**
  * Update user data
- * @param {*} req id
+ * @param { body {id, firstName, lastName, email, gender, country }} req id
  * @param {*} res
  */
 const updateUser = async (req, res) => {
