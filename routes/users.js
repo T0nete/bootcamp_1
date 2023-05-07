@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/users', getAllUsers)
 
 // Create a new user
-router.post('/users', createUser)
+router.post('/generateData', createUser)
 
 // Update users
 router.put('/users', updateUser)

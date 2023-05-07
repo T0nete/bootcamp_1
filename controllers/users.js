@@ -1,5 +1,5 @@
 const User = require('../model/users')
-
+const fs = require('fs')
 /**
  * Get all users
  * @param {*} req
@@ -50,21 +50,24 @@ const deleteUsers = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-  const { body } = req
-  const { id, firstName, lastName, email, gender, country } = body
-  console.log(body)
+  // const { body } = req
+  // const { id, firstName, lastName, email, gender, country } = body
+  // console.log(body)
   try {
-    const newUser = new User({
-      id,
-      first_name: firstName,
-      last_name: lastName,
-      email,
-      gender,
-      country
+    // const newUser = new User({
+    //   id,
+    //   first_name: firstName,
+    //   last_name: lastName,
+    //   email,
+    //   gender,
+    //   country
+    // })
+    const data = fs.readFileSync('mock/users.json')
+    const users = JSON.parse(data)
+    User.insertMany(users, (err, result) => { 
+      if (err) console.error(err)
     })
-    const user = await newUser.save()
-    console.log(user)
-    res.status(201).json(user)
+    res.status(201).json('Users created successfully')
   } catch (error) {
     res.status(400).json(error.message)
     console.log('Can not register the user')
