@@ -8,4 +8,4 @@ Here you will find a simple CRUD API made with NodeJS and storing the data in Mo
 2. npm install
 3. sudo docker-compose build (build the images) 
 4. sudo docker-compose up -d  (start the container for each service in silence mode)
-5. You have mock data in the /mock/users.json that you can upload in the databse, or this will automatically be inserted by using /generateData.
+5. You have mock data in the /mock/users.json (you are able to load the data automatically using /generateData endpoint
