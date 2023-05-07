@@ -1,21 +1,11 @@
-# bootcamp_1
-CRUD API con NodeJS, MongoDB y Docker
+# CRUD Users NodeJS - MongoDB - Docker
 
-docker network create bootcamp_mongo_network
+## Description
+Here you will find a simple CRUD API made with NodeJS and stroing the data in MongoDB. Both sides, the server and the database, are executed in two differents docker containers.
 
-docker run --name bootcamp_mongo --hostname bootcamp_host_mongo -d -p 27017:2017 --network bootcamp_mongo_network mongo
-
-docker cp ./mock/users.json bootcamp_mongo:/users.json
-
-docker exec -it bootcamp_mongo mongoimport --db bootcamp_db --collection users --file ./users.json  --jsonArray
-
-docker exec -it bootcamp_mongo bash
-
-
-# EXECUTE docker-compose.yaml
-docker-compose build
-docker-compose up -d
-
-# LOAD DATA
-docker cp ./mock/users.json bootcamp_1-db-1:/users.json
-docker exec -it bootcamp_1-db-1 mongoimport --db db --collection users --file ./users.json  --jsonArray
+# Instructions
+1. Clone this repository
+2. npm install
+3. sudo docker-compose build (build the images) 
+4. sudo docker-compose up -d  (start the container for each service in silence mode)
+5. You have mock data in the /mock/users.json that you can upload in the databse, or this will automatically be inserted by using /generateData.
