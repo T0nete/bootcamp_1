@@ -1,7 +1,7 @@
 # CRUD Users NodeJS - MongoDB - Docker
 
 ## Description
-Here you will find a simple CRUD API made with NodeJS and stroing the data in MongoDB. Both sides, the server and the database, are executed in two differents docker containers.
+Here you will find a simple CRUD API made with NodeJS and storing the data in MongoDB. Both sides, the server and the database, are executed in two differents docker containers.
 
 # Instructions
 1. Clone this repository
